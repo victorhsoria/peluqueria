@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar Producto{% endblock %}
+
+{% block content %}
+<h2>Agregar Producto</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="brand">Marca</label>
+        <input type="text" id="brand" name="brand" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" id="description" name="description" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="wholesale_price">Precio Mayorista</label>
+        <input type="number" step="0.01" id="wholesale_price" name="wholesale_price" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="professional_price">Precio Profesional</label>
+        <input type="number" step="0.01" id="professional_price" name="professional_price" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    <a href="{{ url_for('main.products') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

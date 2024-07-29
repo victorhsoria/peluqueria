@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Bienvenido a Salón de Belleza</h1>
+  <p class="lead">Gestiona tus productos y pedidos de manera eficiente.</p>
+  <hr class="my-4">
+  <p>Utiliza las opciones de navegación para administrar tus productos y pedidos.</p>
+  <a class="btn btn-primary btn-lg" href="{{ url_for('main.products') }}" role="button">Gestionar Productos</a>
+  <a class="btn btn-secondary btn-lg" href="{{ url_for('main.orders') }}" role="button">Gestionar Pedidos</a>
+</div>
+{% endblock %}

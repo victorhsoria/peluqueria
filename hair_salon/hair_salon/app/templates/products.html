@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Productos</h2>
+<form method="post">
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="brand">Marca</label>
+      <input type="text" class="form-control" id="brand" name="brand" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="description">Descripción</label>
+      <input type="text" class="form-control" id="description" name="description" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="wholesale_price">Precio Mayorista</label>
+      <input type="number" class="form-control" id="wholesale_price" name="wholesale_price" step="0.01" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="professional_price">Precio Profesional</label>
+      <input type="number" class="form-control" id="professional_price" name="professional_price" step="0.01" required>
+    </div>
+    <div class="form-group col-md-2 align-self-end">
+      <button type="submit" class="btn btn-primary">Agregar Producto</button>
+    </div>
+  </div>
+</form>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Descripción</th>
+      <th>Precio Mayorista</th>
+      <th>Precio Profesional</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.wholesale_price }}</td>
+      <td>{{ product.professional_price }}</td>
+      <td>
+        <a href="{{ url_for('main.edit_product', product_id=product.id) }}" class="btn btn-warning btn-sm">Editar</a>
+        <a href="{{ url_for('main.delete_product', product_id=product.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{{ url_for('main.index') }}" class="btn btn-secondary">Volver al Inicio</a>
+{% endblock %}

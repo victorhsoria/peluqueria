@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Resumen de Pedido</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th>Marca</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+    <tr>
+      <td>{{ order.quantity }}</td>
+      <td>{{ order.product.brand }}</td>
+      <td>{{ order.product.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{{ url_for('main.index') }}" class="btn btn-secondary">Volver al Inicio</a>
+{% endblock %}
